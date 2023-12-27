@@ -1,16 +1,35 @@
-import React from 'react'
+import { HomeIcon } from "@heroicons/react/24/solid";
+import React from "react";
+import { Link, useRouteError } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 const Error = () => {
-    const errorImageStyle = {
-        display: 'block',
-        margin: 'auto',
-        marginTop: '3vh', 
-    };
-    return (
-        <div >
-            <img src="https://media.makeameme.org/created/its-a-bug-2365b68cf3.jpg" alt='Error' style={errorImageStyle}></img>
-        </div>
-    )
-}
+  //   const navigate = useNavigate();
+  const error = useRouteError();
+  const errorImageStyle = {
+    display: "block",
+    margin: "auto",
+    maxWidth: "60%",
+  };
 
-export default Error
+  const goHomeButton = {
+    height: "60px",
+  };
+
+  return (
+    <div className="error">
+      <img
+        src="https://media.makeameme.org/created/its-a-bug-2365b68cf3.jpg"
+        alt="Error"
+        style={errorImageStyle}
+      ></img>
+      <p>{error.message}</p>
+      <Link className="btn btn--dark" style={goHomeButton} to="/">
+        <HomeIcon width={20} />
+        <span>Go home</span>
+      </Link>
+    </div>
+  );
+};
+
+export default Error;
