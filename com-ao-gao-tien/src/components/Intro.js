@@ -15,11 +15,18 @@ const Intro = () => {
           journey today.
         </p>
         <Form method="post">
-          <input type="text" name="userName" required placeholder="What is your name?" 
-          aria-label="Your Name" autoComplete="given-name"/>
+          <input
+            type="text"
+            name="userName"
+            required
+            placeholder="What is your name?"
+            aria-label="Your Name"
+            autoComplete="given-name"
+          />
+          <input type="hidden" name="_action" value="newUser" />
           <button type="submit" className="btn btn--dark">
             <span>Create Accout</span>
-            <UserPlusIcon width={20}/>
+            <UserPlusIcon width={20} />
           </button>
         </Form>
       </div>

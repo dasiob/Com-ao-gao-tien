@@ -4,7 +4,7 @@ import Dashboard, { dashBoardAction, dashBoardLoader } from "./pages/Dashboard";
 import Error from "./pages/Error";
 import { logoutAction } from "./actions/logout";
 import { ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import ErrorMain from "./pages/ErrorMain";
 const router = createBrowserRouter([
   {
@@ -21,10 +21,10 @@ const router = createBrowserRouter([
         errorElement: <Error />,
       },
       {
-        path:"/logout",
-        action: logoutAction
-      }
-    ]
+        path: "/logout",
+        action: logoutAction,
+      },
+    ],
   },
 ]);
 

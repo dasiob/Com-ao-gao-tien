@@ -2,5 +2,7 @@
 - Chọn đăng nhập Lương, HA, chung, Sáng (sáng thêm promt hỏi mm béo, tl sai đ cho vào, câu tl sẽ random)
 - Có nhập thu nhập của tháng, chọn ước tính chi tiêu, số dư
 - Đăng xuất không xóa tk mà chuyển qua màn chính để chọn tk đăng nhập
-- Sáng mỗi lần đăng nhập sẽ có 1 màn hiện 1 random mom joke
+- Sáng mỗi lần đăng nhập sẽ có 1 màn hiện 1 random mom joke:
+url generator: https://www.ba-bamail.com/handlers/general.ashx?action=jokes_generator&cid=88
+
 - Mục tiêu tiết kiệm
