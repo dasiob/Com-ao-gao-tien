@@ -1,14 +1,11 @@
 import React from "react";
-import {
-  fetchData,
-  createBudget,
-  amountToNumber,
-} from "../helper";
+import { fetchData, createBudget, amountToNumber, createExpense } from "../helper";
 import { useLoaderData } from "react-router-dom";
 import Intro from "../components/Intro";
 import { toast } from "react-toastify";
 import AddBudgetForm from "../components/AddBudgetForm";
 import MomJoke from "../components/MomJoke";
+import AddExpenseForm from "../components/AddExpenseForm";
 
 // loader
 export function dashBoardLoader() {
@@ -41,6 +38,21 @@ export async function dashBoardAction({ request }) {
       throw new Error(e.message);
     }
   }
+
+  if (_action === "createExpense") {
+    try {
+      createExpense({
+        name: values.newExpense,
+        amount: amountToNumber(values.newExpenseAmount),
+        budgetId: values.newExpenseBudget
+      });
+
+      return toast.success(`Expense ${values.newExpense} created`);
+    } catch (e) {
+      // throw new Error("There's an error in creating expense");
+      throw new Error(e.message);
+    }
+  }
 }
 const Dashboard = () => {
   const { userName, budgets } = useLoaderData();
@@ -54,12 +66,18 @@ const Dashboard = () => {
           </h1>
           <MomJoke />
           <div className="grid-sm">
-            {/* {budgets ? () : ()} */}
-            <div className="grid-lg">
-              <div className="flex-lg">
+            {budgets && budgets.length > 0 ? (
+              <div className="grid-lg">
+                <div className="flex-lg">
+                  <AddBudgetForm />
+                  <AddExpenseForm budgets={budgets} />
+                </div>
+              </div>
+            ) : (
+              <div className="grid-sm">
                 <AddBudgetForm />
               </div>
-            </div>
+            )}
           </div>
         </div>
       ) : (

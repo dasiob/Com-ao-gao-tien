@@ -42,7 +42,7 @@ const AddBudgetForm = () => {
             id="newBudgetAmount"
             required
             placeholder="e.g. 200,000VND"
-            onInput={formatNumber}
+            onInput={(e) => formatNumber("newBudgetAmount")}
           />
         </div>
         <input type="hidden" name="_action" value="createBudget" />

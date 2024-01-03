@@ -7,8 +7,10 @@ export const deleteUser = ({ key }) => {
   return localStorage.removeItem(key);
 };
 
-export const formatNumber = () => {
-  let numberInput = document.getElementById("newBudgetAmount");
+export const formatNumber = (elementName) => {
+  console.log("maybe a");
+  let numberInput = document.getElementById(elementName);
+  console.log("maybe b");
   let value = numberInput.value.replace(/[^0-9]/g, "");
   value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   numberInput.value = value;
@@ -29,6 +31,22 @@ export const createBudget = ({ name, amount }) => {
   );
 };
 
+export const createExpense = ({ name, amount, budgetId }) => {
+  const newItem = {
+    id: crypto.randomUUID(),
+    name: name,
+    createdAt: Date.now(),
+    amount: +amount,
+    budgetId: budgetId,
+    color: generateRandomColor(),
+  };
+  const existingExpenses = fetchData("expenses") ?? [];
+  return localStorage.setItem(
+    "expenses",
+    JSON.stringify([...existingExpenses, newItem])
+  );
+};
+
 export const amountToNumber = (amount) => {
   return amount.replace(/[^0-9]/g, "");
 };
@@ -39,8 +57,7 @@ const generateRandomColor = () => {
 };
 
 export const momJokeGenerator = async () => {
-  const apiUrl =
-    "http://localhost:8080/api/dash-board/mom-joke";
+  const apiUrl = "http://localhost:8080/api/dash-board/mom-joke";
 
   try {
     const response = await fetch(apiUrl);
