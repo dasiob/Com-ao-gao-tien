@@ -6,6 +6,12 @@ export async function logoutAction() {
     deleteUser({
         key: "userName"
     })
+    deleteUser({
+        key: "budgets"
+    })
+    deleteUser({
+        key: "expenses"
+    })
     //hiện thông báo đẹp
     toast.success("Xóa thành công");
     return redirect("/");

@@ -21,10 +21,10 @@ const AddExpenseForm = ({ budgets }) => {
   return (
     <div className="form-wrapper">
       <h2 className="h3">
-        Add new
+        Add New
         <span className="accent">
-          {budgets.length === 1 && ` ${budgets.map((budg) => budg.name)} `}
-        </span>
+          {budgets.length === 1 && ` ${budgets.map((budg) => budg.name)}`}
+        </span>{" "}
         Expense
       </h2>
       <fetcher.Form method="post" className="grid-sm" ref={formRef}>

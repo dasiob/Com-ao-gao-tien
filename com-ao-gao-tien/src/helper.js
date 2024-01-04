@@ -65,8 +65,48 @@ export const momJokeGenerator = async () => {
       throw new Error("Mom joke generator failed");
     }
     console.log(response);
-    return await response.text();
+    return (await response.text()).replace(/[\\|\r|\n]/g, "");
   } catch (e) {
     return null;
   }
+};
+
+export const formatCurrency = (amount) => {
+  const formatter = new Intl.NumberFormat("vi-VN", {
+    style: "currency",
+    currency: "VND",
+  });
+
+  return formatter.format(amount);
+};
+
+export const calculateSpentByBudget = (budgetId) => {
+  const expenses = fetchData("expenses") ?? [];
+
+  const budgetSpent = expenses.reduce((acc, expense) => {
+    if (expense.budgetId !== budgetId) return acc;
+
+    return (acc += expense.amount);
+  }, 0);
+  return budgetSpent;
+};
+
+export const formatPercentage = (amount) => {
+  return amount.toLocaleString(undefined, {
+    style: "percent",
+    minimumFractionDigits: 0,
+  });
+};
+
+export const formatDateToLocaleString = (epoch) => {
+  const options = {
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    hour12: false, 
+  };
+
+  return new Date(epoch).toLocaleString(undefined, options);
 };
