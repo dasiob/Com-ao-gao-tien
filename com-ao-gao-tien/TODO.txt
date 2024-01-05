@@ -6,3 +6,5 @@
 url generator: https://www.ba-bamail.com/handlers/general.ashx?action=jokes_generator&cid=88
 
 - Mục tiêu tiết kiệm
+
+- config cors cho back end
