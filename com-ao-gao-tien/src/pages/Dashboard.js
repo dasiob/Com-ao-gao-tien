@@ -4,6 +4,7 @@ import {
   createBudget,
   amountToNumber,
   createExpense,
+  deleteItem,
 } from "../helper";
 import { Link, useLoaderData } from "react-router-dom";
 import Intro from "../components/Intro";
@@ -43,7 +44,6 @@ export async function dashBoardAction({ request }) {
       });
       return toast.success("Budget created");
     } catch (e) {
-      // throw new Error("There's an error in creating budget");
       throw new Error(e.message);
     }
   }
@@ -58,7 +58,19 @@ export async function dashBoardAction({ request }) {
 
       return toast.success(`Expense ${values.newExpense} created`);
     } catch (e) {
-      // throw new Error("There's an error in creating expense");
+      throw new Error(e.message);
+    }
+  }
+
+  if (_action === "deleteExpense") {
+    try {
+      deleteItem({
+        key: "expenses",
+        id: values.expenseId,
+      });
+
+      return toast.success(`Expense deleted`);
+    } catch (e) {
       throw new Error(e.message);
     }
   }
@@ -105,13 +117,11 @@ const Dashboard = () => {
                         .sort((a, b) => b.createdAt - a.createdAt)
                         .slice(0, 8)}
                     />
-                    {
-                      expenses.length > 8 && (
-                        <Link to={"/expenses"} className="btn btn--dark">
-                          View all expenses
-                        </Link>
-                      )
-                    }
+                    {expenses.length > 8 && (
+                      <Link to={"/expenses"} className="btn btn--dark">
+                        View all expenses
+                      </Link>
+                    )}
                   </div>
                 )}
               </div>

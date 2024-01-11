@@ -24,6 +24,16 @@ const Error = () => {
         style={errorImageStyle}
       ></img>
       <p>{error.message}</p>
+      <p>
+        Hãy thông báo cho{" "}
+        <a
+          href="https://www.facebook.com/bdl.khshk/"
+          style={{ fontWeight: "bold" }}
+        >
+          Lương
+        </a>{" "}
+        để fix bug :)
+      </p>
       <Link className="btn btn--dark" style={goHomeButton} to="/">
         <HomeIcon width={20} />
         <span>Go home</span>

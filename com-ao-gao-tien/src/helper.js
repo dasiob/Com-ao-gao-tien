@@ -3,10 +3,6 @@ export const fetchData = (key) => {
   return JSON.parse(localStorage.getItem(key));
 };
 
-export const deleteUser = ({ key }) => {
-  return localStorage.removeItem(key);
-};
-
 export const formatNumber = (elementName) => {
   console.log("maybe a");
   let numberInput = document.getElementById(elementName);
@@ -105,8 +101,22 @@ export const formatDateToLocaleString = (epoch) => {
     day: "numeric",
     hour: "numeric",
     minute: "numeric",
-    hour12: false, 
+    hour12: false,
   };
 
   return new Date(epoch).toLocaleString(undefined, options);
+};
+
+export const getAllMatchingItems = ({ category, key, value }) => {
+  const items = fetchData(category) ?? [];
+  return items.filter((item) => item[key] === value);
+};
+
+export const deleteItem = ({ key, id }) => {
+  const existingData = fetchData(key);
+  if (id) {
+    const newData = existingData.filter((item) => item.id !== id);
+    return localStorage.setItem(key, JSON.stringify(newData));
+  }
+  return localStorage.removeItem(key);
 };
