@@ -5,7 +5,7 @@ import { PlusCircleIcon } from "@heroicons/react/24/solid";
 
 const AddExpenseForm = ({ budgets }) => {
   const fetcher = useFetcher();
-  const isSubmitting = useFetcher().state === "submitting";
+  const isSubmitting = fetcher.state === "submitting";
 
   const formRef = useRef();
 
@@ -21,39 +21,38 @@ const AddExpenseForm = ({ budgets }) => {
   return (
     <div className="form-wrapper">
       <h2 className="h3">
-        Add New
+        Chi Tiêu
         <span className="accent">
           {budgets.length === 1 && ` ${budgets.map((budg) => budg.name)}`}
-        </span>{" "}
-        Expense
+        </span>
       </h2>
       <fetcher.Form method="post" className="grid-sm" ref={formRef}>
         <div className="expense-inputs">
           <div className="grid-xs">
-            <label htmlFor="newExpense">Expense Name</label>
+            <label htmlFor="newExpense">Tên Chi Tiêu</label>
             <input
               type="text"
               name="newExpense"
               id="newExpense"
               required
-              placeholder="e.g. Coffee"
+              placeholder="vd: Cà phê, Figure,..."
               ref={focusRef}
             />
           </div>
           <div className="grid-xs">
-            <label htmlFor="newExpenseAmount">Amount</label>
+            <label htmlFor="newExpenseAmount">Đã Chi</label>
             <input
               type="text"
               name="newExpenseAmount"
               id="newExpenseAmount"
               required
-              placeholder="e.g. 300,000VND"
+              placeholder="vd 300,000"
               onInput={(e) => formatNumber("newExpenseAmount")}
             />
           </div>
         </div>
         <div className="grid-xs">
-          <label htmlFor="newExpenseBudget">Budget Category</label>
+          <label htmlFor="newExpenseBudget">Ngân Quỹ</label>
           <select name="newExpenseBudget" id="newExpenseBudget" required>
             {budgets
               .sort((a, b) => a.createdAt - b.createdAt)
@@ -69,10 +68,10 @@ const AddExpenseForm = ({ budgets }) => {
         <input type="hidden" name="_action" value="createExpense" />
         <button type="submit" className="btn btn--dark" disabled={isSubmitting}>
           {isSubmitting ? (
-            <span>Creating...</span>
+            <span>Đang tạo...</span>
           ) : (
             <>
-              <span>Add Expense</span>
+              <span>Lưu chi tiêu</span>
               <PlusCircleIcon width={20} />
             </>
           )}

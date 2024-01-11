@@ -30,9 +30,9 @@ export async function dashBoardAction({ request }) {
   if (_action === "newUser") {
     try {
       localStorage.setItem("userName", JSON.stringify(values.userName));
-      return toast.success(`Welcome ${values.userName}`);
+      return toast.success(`What's gud ${values.userName}`);
     } catch (e) {
-      throw new Error("There's an error in loging in");
+      throw new Error("Có lỗi khi đăng nhập bruh :'(");
     }
   }
 
@@ -42,7 +42,7 @@ export async function dashBoardAction({ request }) {
         name: values.newBudget,
         amount: amountToNumber(values.newBudgetAmount),
       });
-      return toast.success("Budget created");
+      return toast.success("Tạo ngân quỹ thành công");
     } catch (e) {
       throw new Error(e.message);
     }
@@ -56,7 +56,7 @@ export async function dashBoardAction({ request }) {
         budgetId: values.newExpenseBudget,
       });
 
-      return toast.success(`Expense ${values.newExpense} created`);
+      return toast.success(`Chi tiêu ${values.newExpense} thêm thành công`);
     } catch (e) {
       throw new Error(e.message);
     }
@@ -69,7 +69,7 @@ export async function dashBoardAction({ request }) {
         id: values.expenseId,
       });
 
-      return toast.success(`Expense deleted`);
+      return toast.success(`Chi tiêu ${values.newExpense} xoá thành công`);
     } catch (e) {
       throw new Error(e.message);
     }
@@ -92,7 +92,6 @@ const Dashboard = () => {
             style={{
               borderRadius: "50%",
               objectFit: "cover",
-              marginTop: "15px",
             }}
           />
           <MomJoke />
@@ -103,7 +102,7 @@ const Dashboard = () => {
                   <AddBudgetForm />
                   <AddExpenseForm budgets={budgets} />
                 </div>
-                <h3>Existing Budget</h3>
+                <h2>Danh Sách Ngân Quỹ</h2>
                 <div className="budgets">
                   {budgets.map((budget) => (
                     <BudgetItem key={budget.id} budget={budget} />
@@ -111,7 +110,7 @@ const Dashboard = () => {
                 </div>
                 {expenses && expenses.length > 0 && (
                   <div className="grid-md">
-                    <h3>Recent Expenses</h3>
+                    <h2>Chi Tiêu Gần Đây</h2>
                     <Table
                       expenses={expenses
                         .sort((a, b) => b.createdAt - a.createdAt)
@@ -119,7 +118,7 @@ const Dashboard = () => {
                     />
                     {expenses.length > 8 && (
                       <Link to={"/expenses"} className="btn btn--dark">
-                        View all expenses
+                        Xem tất cả chi tiêu
                       </Link>
                     )}
                   </div>

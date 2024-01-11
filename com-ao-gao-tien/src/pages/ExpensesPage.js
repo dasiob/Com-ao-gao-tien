@@ -20,7 +20,7 @@ export async function expensePageAction({ request }) {
         id: values.expenseId,
       });
 
-      return toast.success(`Expense deleted`);
+      return toast.success(`Chi tiêu đã được xóa`);
     } catch (e) {
       throw new Error(e.message);
     }
@@ -32,12 +32,12 @@ const ExpensesPage = () => {
   return (
     <div className="grid-lg">
       <h2>
-        All <span className="accent">expenses</span>
+        Danh Sách <span className="accent">Chi Tiêu</span>
       </h2>
       {expenses && expenses.length > 0 ? (
         <Table expenses={expenses.sort((a, b) => b.createdAt - a.createdAt)} />
       ) : (
-        <p>Currently you have no expense yet.</p>
+        <p>Chi đi thì mới có mà show</p>
       )}
     </div>
   );

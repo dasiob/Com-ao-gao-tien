@@ -25,7 +25,7 @@ export function budgetPageLoader({ params }) {
   });
 
   if (!budget) {
-    throw new Error("Budget not exists!");
+    throw new Error("Ngân quỹ không tồn tại!");
   }
   return { budget, expenses };
 }
@@ -41,7 +41,7 @@ export async function budgetPageAction({ request }) {
         id: values.expenseId,
       });
 
-      return toast.success(`Expense deleted`);
+      return toast.success(`Chi tiêu đã được xóa`);
     } catch (e) {
       throw new Error(e.message);
     }
@@ -55,7 +55,7 @@ export async function budgetPageAction({ request }) {
         budgetId: values.newExpenseBudget,
       });
 
-      return toast.success(`Expense ${values.newExpense} created`);
+      return toast.success(`Quỹ ${values.newExpense} đã được tạo`);
     } catch (e) {
       throw new Error(e.message);
     }
@@ -67,8 +67,8 @@ const BudgetsPage = () => {
   return (
     <div className="grid-lg" style={{ "--accent": budget.color }}>
       <h2>
-        <span className="accent">{budget.name} </span>
-        Overview
+        Tổng Quan
+        <span className="accent"> {budget.name}</span>
       </h2>
       <div className="flex-lg">
         <BudgetItem budget={budget} showDelete={true} />
@@ -77,8 +77,8 @@ const BudgetsPage = () => {
       {expenses && expenses.length > 0 && (
         <div className="grid-md">
           <h2>
-            <span className="accent">{budget.name} </span>
-            Expenses
+            Danh Sách Chi Tiêu
+            <span className="accent"> {budget.name} </span>
           </h2>
           <Table
             expenses={expenses.sort((a, b) => b.createdAt - a.createdAt)}

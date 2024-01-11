@@ -36,7 +36,7 @@ const ErrorMain = () => {
       </p>
       <Link className="btn btn--dark" style={goHomeButton} to="/">
         <HomeIcon width={20} />
-        <span>Go home</span>
+        <span>Quay về màn hình chính</span>
       </Link>
     </div>
   );

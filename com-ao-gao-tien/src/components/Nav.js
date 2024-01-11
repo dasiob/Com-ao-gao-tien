@@ -17,13 +17,13 @@ const Nav = ({ userName }) => {
             method="post"
             action="/logout"
             onSubmit={(event) => {
-              if (!window.confirm("U sure?")) {
+              if (!window.confirm("Chắc chưa?")) {
                 event.preventDefault();
               }
             }}
           >
             <button type="submit" className="btn btn--warning">
-              <span>Delete User</span>
+              <span>Xóa user</span>
               <TrashIcon width={20} />
             </button>
           </Form>

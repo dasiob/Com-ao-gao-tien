@@ -21,37 +21,37 @@ const AddBudgetForm = () => {
 
   return (
     <div className="form-wrapper">
-      <h2 className="h3">Create Budget</h2>
+      <h2 className="h3">Ngân Quỹ</h2>
       <fetcher.Form method="post" className="grid-sm" ref={formRef}>
         <div className="grid-xs">
-          <label htmlFor="newBudget">Budget Name</label>
+          <label htmlFor="newBudget">Tên Quỹ</label>
           <input
             type="text"
             name="newBudget"
             id="newBudget"
             required
-            placeholder="e.g. Groceries"
+            placeholder="vd: Ăn uống, Nhu yếu phẩm,.."
             ref={focusRef}
           />
         </div>
         <div className="grid-xs">
-          <label htmlFor="newBudgetAmount">Amount</label>
+          <label htmlFor="newBudgetAmount">Tiền Quỹ</label>
           <input
             type="text"
             name="newBudgetAmount"
             id="newBudgetAmount"
             required
-            placeholder="e.g. 200,000VND"
+            placeholder="vd: 200,000"
             onInput={(e) => formatNumber("newBudgetAmount")}
           />
         </div>
         <input type="hidden" name="_action" value="createBudget" />
         <button type="submit" className="btn btn--dark" disabled={isSubmitting}>
           {isSubmitting ? (
-            <span>Creating...</span>
+            <span>Đang tạo...</span>
           ) : (
             <>
-              <span>Create budget</span>
+              <span>Tạo ngân quỹ</span>
               <CurrencyDollarIcon width={20} />
             </>
           )}

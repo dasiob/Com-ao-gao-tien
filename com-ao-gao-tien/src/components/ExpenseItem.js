@@ -34,7 +34,7 @@ const ExpenseItem = ({ expense, showBudget = true }) => {
           method="post"
           onSubmit={(event) => {
             if (
-              !window.confirm(`U sure want to delete ${expense.name} expense? `)
+              !window.confirm(`Có chắc là muốn xóa chi tiêu ${expense.name} không? `)
             ) {
               event.preventDefault();
             }

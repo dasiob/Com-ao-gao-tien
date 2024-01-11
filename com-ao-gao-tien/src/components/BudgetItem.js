@@ -15,14 +15,14 @@ const BudgetItem = ({ budget, showDelete = false }) => {
     <div className="budget" style={{ "--accent": color }}>
       <div className="progress-text">
         <h3>{name}</h3>
-        <p>{formatCurrency(amount)} Budgeted</p>
+        <p>{formatCurrency(amount)} quỹ</p>
       </div>
       <progress max={amount} value={spent}>
         {formatPercentage(spent / amount)}
       </progress>
       <div className="progress-text">
-        <small>{formatCurrency(spent)} spent</small>
-        <small>{formatCurrency(amount - spent)} remaining</small>
+        <small>Đã tiêu {formatCurrency(spent)}</small>
+        <small>Còn lại {formatCurrency(amount - spent)}</small>
       </div>
       {showDelete ? (
         <div className="flex-sm">
@@ -30,13 +30,13 @@ const BudgetItem = ({ budget, showDelete = false }) => {
             method="post"
             action={`/budgets/${id}/delete`}
             onSubmit={(event) => {
-              if (!window.confirm(`U sure want to delete ${name} budget?`)) {
+              if (!window.confirm(`Chắc là muốn xóa ngân quỹ ${name} không? Toàn bộ chi tiêu của quỹ này cũng sẽ bị xóa theo đấy :))`)) {
                 event.preventDefault();
               }
             }}
           >
             <button type="submit" className="btn">
-              <span>Delete Budget</span>
+              <span>Xóa ngân quỹ</span>
               <TrashIcon width={20} />
             </button>
           </Form>
@@ -44,7 +44,7 @@ const BudgetItem = ({ budget, showDelete = false }) => {
       ) : (
         <div className="flex-sm">
           <Link to={`/budgets/${id}`} className="btn">
-            <span>View Details</span>
+            <span>Xem Chi Tiết</span>
             <BanknotesIcon width={20} />
           </Link>
         </div>
