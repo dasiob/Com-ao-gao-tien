@@ -308,8 +308,11 @@ nav {
   align-items: center;
   width: 100%;
   padding: var(--space-md);
-  max-width: 1500px;
-  margin-inline: auto;
+  /* max-width: 1500px;
+  margin-inline: auto; */
+  background-image: linear-gradient(to right, #e981a4, #f4c5d7);
+  position: fixed;
+  z-index: 1;
 }
 
 nav a {
@@ -601,4 +604,20 @@ table a {
 /* toast */
 .Toastify__toast-body {
   font-size: var(--fs-300);
+}
+
+.Sidebar {
+  min-height: 100vh;
+  min-width: 250px;
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  top: 95px;
+}
+
+.icon-menu {
+  height: 30px;
+  width: 30px;
+  object-fit: contain;
 }
