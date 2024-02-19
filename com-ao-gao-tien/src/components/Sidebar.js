@@ -7,11 +7,17 @@ import LogoutIcon from "../assets/logout icon.png";
 
 const Sidebar = () => {
   const navigate = useNavigate();
+
+  const handleClick = (key) => {
+    navigate(key);
+    window.scrollTo(0, 0);
+  }
+
   return (
     <div className="Sidebar">
       <Menu
         onClick={({ key }) => {
-          navigate(key);
+          handleClick(key);
         }}
         items={[
           {
@@ -21,7 +27,7 @@ const Sidebar = () => {
               <img
                 src={DashboardIcon}
                 className="icon-menu"
-                style={{ verticalAlign: "-0.6em"}}
+                style={{ verticalAlign: "-0.6em" }}
               />
             ),
           },
@@ -32,7 +38,7 @@ const Sidebar = () => {
               <img
                 src={ExpenseIcon}
                 className="icon-menu"
-                style={{ verticalAlign: "-0.6em"}}
+                style={{ verticalAlign: "-0.6em" }}
               />
             ),
           },
@@ -43,7 +49,7 @@ const Sidebar = () => {
               <img
                 src={LogoutIcon}
                 className="icon-menu"
-                style={{ verticalAlign: "-0.6em"}}
+                style={{ verticalAlign: "-0.6em" }}
               />
             ),
           },

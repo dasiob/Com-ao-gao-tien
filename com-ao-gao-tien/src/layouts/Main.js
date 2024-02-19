@@ -15,15 +15,15 @@ const Main = () => {
   return (
     <div className="layout">
       <Nav userName={userName} />
-      <div style={{ display: "flex", flexDirection: "row", justifyContent: "flex-end" }}>
+      <div style={{ display: "flex", flexDirection: "row", justifyContent: "flex-end", paddingBottom: "150px" }}>
         <Sidebar />
-        <div style={{ paddingLeft: "20px", width: `calc(100% - 250px)`, marginTop: "95px"}}>
+        <div style={{ paddingLeft: "20px", width: `calc(100% - 250px)`, marginTop: "80px"}}>
           <main>
             <Outlet />
           </main>
         </div>
       </div>
-      <img src={wave} alt="" style={{ zIndex: 2 }}/>
+      <img src={wave} alt="" style={{ zIndex: 2, bottom: 0, position: "absolute"}}/>
     </div>
   );
 };

@@ -279,6 +279,7 @@ p {
   min-height: 100vh;
   -ms-grid-rows: auto 1fr auto;
   grid-template-rows: auto 1fr auto;
+  position: relative;
 }
 
 .layout > img {
@@ -307,10 +308,11 @@ nav {
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
+  height: 80px;
   padding: var(--space-md);
   /* max-width: 1500px;
   margin-inline: auto; */
-  background-image: linear-gradient(to right, #e981a4, #f4c5d7);
+  background-image: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(231,231,250,1) 0%, rgba(6,198,237,1) 100%);
   position: fixed;
   z-index: 1;
 }
@@ -613,7 +615,8 @@ table a {
   position: fixed;
   bottom: 0;
   left: 0;
-  top: 95px;
+  top: 80px;
+  padding-top: 20px;
 }
 
 .icon-menu {

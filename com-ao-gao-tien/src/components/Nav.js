@@ -23,7 +23,7 @@ const Nav = ({ userName }) => {
             }}
           >
             <button type="submit" className="btn btn--warning">
-              <span>Xóa user</span>
+              <span><b>Xóa user</b></span>
               <TrashIcon width={20} />
             </button>
           </Form>
