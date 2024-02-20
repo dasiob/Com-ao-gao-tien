@@ -22,7 +22,7 @@ const Nav = ({ userName }) => {
               }
             }}
           >
-            <button type="submit" className="btn btn--warning">
+            <button type="submit" className="btn btn--logout">
               <span><b>Xóa user</b></span>
               <TrashIcon width={20} />
             </button>

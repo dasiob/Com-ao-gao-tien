@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Menu } from "antd";
 import { useNavigate } from "react-router-dom";
 import DashboardIcon from "../assets/dashboard icon.png";
@@ -6,22 +6,28 @@ import ExpenseIcon from "../assets/expense icon.png";
 import LogoutIcon from "../assets/logout icon.png";
 
 const Sidebar = () => {
+  const [navBarActive, setNavBarActive] = useState(false);
+
+  const toggleShowNavBar = () => {
+    setNavBarActive(!navBarActive);
+  };
+
   const navigate = useNavigate();
 
   const handleClick = (key) => {
     navigate(key);
     window.scrollTo(0, 0);
-  }
+  };
 
   return (
-    <div className="Sidebar">
+    <div className={navBarActive ? "Sidebar" : "Sidebar active"}>
       <Menu
         onClick={({ key }) => {
           handleClick(key);
         }}
         items={[
           {
-            label: "Màn hình chính",
+            label: navBarActive ? "" : "Màn hình chính",
             key: "/",
             icon: (
               <img
@@ -32,7 +38,7 @@ const Sidebar = () => {
             ),
           },
           {
-            label: "Danh sách chi tiêu",
+            label: navBarActive ? "" : "Danh sách chi tiêu",
             key: "/expenses",
             icon: (
               <img
@@ -43,7 +49,7 @@ const Sidebar = () => {
             ),
           },
           {
-            label: "Đăng xuất",
+            label: navBarActive ? "" : "Đăng xuất",
             key: "/",
             icon: (
               <img
@@ -52,6 +58,12 @@ const Sidebar = () => {
                 style={{ verticalAlign: "-0.6em" }}
               />
             ),
+            onClick: (event) => {
+              toggleShowNavBar();
+              // if (!window.confirm("Chắc chưa?")) {
+              //   event.preventDefault();
+              // }
+            },
           },
         ]}
         style={{

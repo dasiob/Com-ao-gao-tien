@@ -17,7 +17,7 @@ const Main = () => {
       <Nav userName={userName} />
       <div style={{ display: "flex", flexDirection: "row", justifyContent: "flex-end", paddingBottom: "150px" }}>
         <Sidebar />
-        <div style={{ paddingLeft: "20px", width: `calc(100% - 250px)`, marginTop: "80px"}}>
+        <div style={{ padding: "0 20px 20px", width: `calc(100% - 250px)`, marginTop: "80px"}}>
           <main>
             <Outlet />
           </main>

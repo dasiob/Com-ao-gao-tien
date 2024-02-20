@@ -198,6 +198,18 @@ p {
   --color: hsl(var(--bkg));
 }
 
+:where(.btn--logout) {
+  --backdrop: hsl(var(--warning) / 0.1);
+  border: 2px solid hsl(var(--warning));
+  --color: hsl(var(--warning));
+  background-color: white;
+}
+
+:where(.btn--logout):is(:hover, :focus-visible) {
+  --backdrop: hsl(var(--warning));
+  --color: hsl(var(--bkg));
+}
+
 .btn[disabled] {
   opacity: 0.5;
 }
@@ -610,13 +622,21 @@ table a {
 
 .Sidebar {
   min-height: 100vh;
-  min-width: 250px;
+  width: 81px;
+  min-width: 81px;
   background-color: white;
   position: fixed;
   bottom: 0;
   left: 0;
   top: 80px;
   padding-top: 20px;
+  transition: 80ms;
+}
+
+.Sidebar.active {
+  width: 250px;
+  min-width: 200px;
+  transition: 350ms;
 }
 
 .icon-menu {
