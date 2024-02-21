@@ -327,6 +327,7 @@ nav {
   background-image: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(231,231,250,1) 0%, rgba(6,198,237,1) 100%);
   position: fixed;
   z-index: 1;
+  padding-left: 12px;
 }
 
 nav a {
@@ -643,4 +644,16 @@ table a {
   height: 30px;
   width: 30px;
   object-fit: contain;
+}
+
+.content {
+  width: calc(100% - 81px);
+  transition: 250ms;
+  padding: 0 20px 20px;
+  margin-top: 80px;
+}
+
+.content.active {
+  width: calc(100% - 250px);
+  transition: 350ms;
 }

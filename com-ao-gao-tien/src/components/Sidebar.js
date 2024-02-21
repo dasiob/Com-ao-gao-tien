@@ -5,13 +5,7 @@ import DashboardIcon from "../assets/dashboard icon.png";
 import ExpenseIcon from "../assets/expense icon.png";
 import LogoutIcon from "../assets/logout icon.png";
 
-const Sidebar = () => {
-  const [navBarActive, setNavBarActive] = useState(false);
-
-  const toggleShowNavBar = () => {
-    setNavBarActive(!navBarActive);
-  };
-
+const Sidebar = ({ navBarActive }) => {
   const navigate = useNavigate();
 
   const handleClick = (key) => {
@@ -59,10 +53,9 @@ const Sidebar = () => {
               />
             ),
             onClick: (event) => {
-              toggleShowNavBar();
-              // if (!window.confirm("Chắc chưa?")) {
-              //   event.preventDefault();
-              // }
+              if (!window.confirm("Chắc chưa?")) {
+                event.preventDefault();
+              }
             },
           },
         ]}
