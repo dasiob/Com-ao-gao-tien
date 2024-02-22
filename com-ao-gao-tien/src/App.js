@@ -15,6 +15,7 @@ import BudgetsPage, {
   budgetPageLoader,
 } from "./pages/BudgetsPage";
 import { deleteBudget } from "./actions/deleteBudget";
+
 const router = createBrowserRouter([
   {
     path: "/",

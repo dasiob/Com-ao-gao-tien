@@ -10,7 +10,6 @@ const Sidebar = ({ navBarActive }) => {
 
   const handleClick = (key) => {
     navigate(key);
-    window.scrollTo(0, 0);
   };
 
   return (

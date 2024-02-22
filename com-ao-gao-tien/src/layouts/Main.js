@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { fetchData } from "../helper";
-import { Outlet, useLoaderData } from "react-router-dom";
+import { Outlet, ScrollRestoration, useLoaderData } from "react-router-dom";
 import wave from "../assets/wave.svg";
 import Nav from "../components/Nav";
 import Sidebar from "../components/Sidebar";
@@ -14,7 +14,7 @@ export function mainLoader() {
 const Main = () => {
   const { userName } = useLoaderData();
 
-  const [menuActive, setMenuActive] = useState(false);
+  const [menuActive, setMenuActive] = useState(true);
 
   const menuButtonClicked = () => {
     setMenuActive(!menuActive);
@@ -36,6 +36,7 @@ const Main = () => {
         <div className={menuActive ? "content" : "content active"}>
           <main>
             <Outlet />
+            <ScrollRestoration />
           </main>
         </div>
       </div>
