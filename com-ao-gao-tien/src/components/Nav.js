@@ -8,9 +8,12 @@ const Nav = ({ userName, menuClicked }) => {
   return (
     <nav>
       <div style={{ display: "flex", gap: "20px" }}>
-        <button type="submit" className="btn" onClick={menuClicked}>
-          <img src={MenuIcon} height={20} />
-        </button>
+        {
+          userName &&
+          <button type="submit" className="btn" onClick={menuClicked}>
+            <img src={MenuIcon} height={20} />
+          </button>
+        }
         <NavLink to="/" aria-label="Go to home">
           <img src={logoMark} alt="" height={30} />
           <span>Cơm áo gạo tiền</span>

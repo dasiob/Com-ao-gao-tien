@@ -4,9 +4,7 @@ export const fetchData = (key) => {
 };
 
 export const formatNumber = (elementName) => {
-  console.log("maybe a");
   let numberInput = document.getElementById(elementName);
-  console.log("maybe b");
   let value = numberInput.value.replace(/[^0-9]/g, "");
   value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   numberInput.value = value;

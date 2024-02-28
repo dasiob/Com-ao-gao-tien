@@ -41,7 +41,7 @@ export async function budgetPageAction({ request }) {
         id: values.expenseId,
       });
 
-      return toast.success(`Chi tiêu đã được xóa`);
+      return toast.success(`Chi tiêu ${values.expenseName} xoá thành công`);
     } catch (e) {
       throw new Error(e.message);
     }
@@ -55,7 +55,7 @@ export async function budgetPageAction({ request }) {
         budgetId: values.newExpenseBudget,
       });
 
-      return toast.success(`Quỹ ${values.newExpense} đã được tạo`);
+      return toast.success(`Chi tiêu ${values.newExpense} đã được tạo`);
     } catch (e) {
       throw new Error(e.message);
     }

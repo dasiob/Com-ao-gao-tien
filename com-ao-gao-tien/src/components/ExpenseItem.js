@@ -19,7 +19,7 @@ const ExpenseItem = ({ expense, showBudget = true }) => {
       <td>{expense.name}</td>
       <td>{formatCurrency(expense.amount)}</td>
       <td>{formatDateToLocaleString(expense.createdAt)}</td>
-      {showBudget && (
+      {showBudget && budget && (
         <td>
           <Link
             to={"/budgets/" + budget.id}
@@ -42,6 +42,7 @@ const ExpenseItem = ({ expense, showBudget = true }) => {
         >
           <input type="hidden" name="_action" value={"deleteExpense"} />
           <input type="hidden" name="expenseId" value={expense.id} />
+          <input type="hidden" name="expenseName" value={expense.name} />
           <button
             type="submit"
             className="btn btn--warning"

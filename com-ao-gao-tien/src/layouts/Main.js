@@ -32,7 +32,9 @@ const Main = () => {
           paddingBottom: "150px",
         }}
       >
-        <Sidebar navBarActive={menuActive} />
+        {
+          userName && <Sidebar navBarActive={menuActive} />
+        }
         <div className={menuActive ? "content" : "content active"}>
           <main>
             <Outlet />

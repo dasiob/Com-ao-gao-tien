@@ -8,11 +8,11 @@ export async function logoutAction() {
     id: "",
   });
   deleteItem({
-    key: "budgets",
+    key: "expenses",
     id: "",
   });
   deleteItem({
-    key: "expenses",
+    key: "budgets",
     id: "",
   });
   //hiện thông báo đẹp

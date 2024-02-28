@@ -20,7 +20,7 @@ export async function expensePageAction({ request }) {
         id: values.expenseId,
       });
 
-      return toast.success(`Chi tiêu đã được xóa`);
+      return toast.success(`Chi tiêu ${values.expenseName} xoá thành công`);
     } catch (e) {
       throw new Error(e.message);
     }

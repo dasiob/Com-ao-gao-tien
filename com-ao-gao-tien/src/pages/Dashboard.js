@@ -69,7 +69,7 @@ export async function dashBoardAction({ request }) {
         id: values.expenseId,
       });
 
-      return toast.success(`Chi tiêu ${values.newExpense} xoá thành công`);
+      return toast.success(`Chi tiêu ${values.expenseName} xoá thành công`);
     } catch (e) {
       throw new Error(e.message);
     }
